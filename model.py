@@ -26,7 +26,7 @@ xjllb = sys.argv[6]
 # lrb = "2"
 # zysjb = "3"
 # xjllb = "4"
-score_of_Macro_environment = 7
+score_of_Macro_environment = float(sys.argv[8])
 score_Meso_environment = 9
 score_of_Supervisory_authority = 10
 
