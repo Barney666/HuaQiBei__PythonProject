@@ -3,7 +3,6 @@ import xlrd
 import os
 import sys
 
-
 List_a = []
 List_by = []
 List1 = []
@@ -13,16 +12,13 @@ a = 0
 risk_grade = [a for i in range(50)]
 risk_type = [a for i in range(50)]
 
-
-
-
 string_code = sys.argv[1]
 same_company = sys.argv[2]
 zcfzb = sys.argv[3]
 lrb = sys.argv[4]
 zysjb = sys.argv[5]
 xjllb = sys.argv[6]
-# string_code = "600101"
+# string_code = "600100"
 #
 # same_company = "15.xlsx"
 # zcfzb = "1"
