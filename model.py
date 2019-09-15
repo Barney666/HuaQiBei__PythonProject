@@ -2,6 +2,7 @@ import csv
 import xlrd
 import os
 import sys
+import json
 
 List_a = []
 List_by = []
@@ -3175,10 +3176,6 @@ for i in range(60):
         list_out[count_now1] = list_out_40
 
 
+res = {"grade": grade, "index": [RTR, DSRI, GMI, AQI, SGI, DEPI, SGAI, LVGI, TATA, CH_REC, CH_INV, Soft_as, CH_CS, CH_ROA, ISSUE, OTHREC, STKCYC, LOSS], "problem": list_out}
 
-List1 = [grade]
-print(grade)
-print(RTR, DSRI, GMI, AQI, SGI, DEPI, SGAI, LVGI, TATA, CH_REC, CH_INV, Soft_as, CH_CS, CH_ROA, ISSUE, OTHREC, STKCYC,
-      LOSS)
-
-print(list_out)
+print(res)
