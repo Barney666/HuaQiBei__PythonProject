@@ -168,31 +168,6 @@ def titlefl(compname):
                                                                                                   hotpl, hotpl_gs]
 
 
-'''
-newurl = 'https://xueqiu.com' + str(key['target'])
-txt = readhtml(newurl)
-words = jieba.lcut(txt,cut_all = False)
-counts = {}
-
-for word in words:
-    if len(word) == 1 or word =="视觉" or word == "中国":
-        continue
-    else:
-        counts[word] = counts.get(word,0)+1
-items = list(counts.items())
-items.sort(key=lambda x:x[1],reverse = True)
-
-for i in range(15):
-    word ,count = items[i]
-    print("{0:<5}{1:>5}".format(word,count))
-
-# ac = client.lexer(txt)
-ac = client.lexerCustom(txt)
-for key in ac['items']:
-    print(key['item'], key['pos'], key['ne'])
-
-break
-'''
 
 
 def clindata(compname):
@@ -203,14 +178,6 @@ def clindata(compname):
             newdatalist.append(key)
 
     return newdatalist
-
-
-'''
-for i in range(40):
-    a = get_index(i)
-    time.sleep(0.1)
-    b = start_spider(a)
-'''
 
 
 def getrange(start_time, end_time,url):
@@ -353,20 +320,23 @@ def readk(resp):
 
     return resp1
 
-def wordcloud(txt):
-
-    f = open(txt, "rb").read()
-    f = f.lower()
-    wordcloud = WordCloud(background_color="white").generate(f)
-
-    plt.imshow(wordcloud)
-    plt.axis("off")
-    plt.show()
+# def wordcloud(txt):
+#
+#     f = open(txt, "rb").read()
+#     f = f.lower()
+#     wordcloud = WordCloud(background_color="white", font_path = "D:/noto sans s chinese regular.ttf").generate(f.decode("utf-8"))
+#
+#     plt.imshow(wordcloud,interpolation='bilinear')
+#     plt.axis("off")
+#     # plt.show()
+#     plt.savefig("cloudPicture.png")
 
 if __name__ == '__main__':
 
     import sys
     compname = sys.argv[1]  # 公司名称
+    # compname="古井贡酒"
+
     url = f'https://xueqiu.com/statuses/search.json?sort=relevance&source=all&q={compname}&count=10&page='
     cd = getrange(start_time=930, end_time=930,url = url)  # 返回帖子数 2019.9。30 和2018.9.30之间
 
@@ -419,7 +389,7 @@ if __name__ == '__main__':
     for i in msforcloud:
         file.write(i+"  ")
     file.close()
-    # wordcloud('data.txt')  #用以做文字云
+
     shuchu["redu"] = cd + hot[0] + hot[1] + hot[2] + hot[3] #热度
 
     print(json.dumps(shuchu, ensure_ascii=False))
