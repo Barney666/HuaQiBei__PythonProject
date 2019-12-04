@@ -338,6 +338,8 @@ if __name__ == '__main__':
     # compname="古井贡酒"
 
     url = f'https://xueqiu.com/statuses/search.json?sort=relevance&source=all&q={compname}&count=10&page='
+    #正常url里面不会汉字 是汉字对应的字节 但不要紧 直接把中文放进url里即可
+
     cd = getrange(start_time=930, end_time=930,url = url)  # 返回帖子数 2019.9。30 和2018.9.30之间
 
     import os
